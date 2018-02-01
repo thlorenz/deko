@@ -1,5 +1,19 @@
 'use strict'
 
+function bindDecorate(target, fnName) {
+  const fn = target[fnName]
+  target[fnName] = fn.bind(target)
+}
+
+const bindDecorator = {
+    needsDescriptor: false
+  , decorate: bindDecorate
+}
+
+const knownDecorators = new Map([
+  [ 'bind', bindDecorator ]
+])
+
 function getDecoratorDescriptors(descriptors) {
   const keys = Object.keys(descriptors)
   const decs = new Map()
@@ -20,15 +34,23 @@ function getDecorators(decoratorDescriptors) {
   return map
 }
 
-function findDecoratables(target, decoratorsMap) {
-  const decoratables = new Map()
-  const proto = Object.getPrototypeOf(target)
-  for (const [ fnName, decorators ] of decoratorsMap) {
-    const descriptor = Object.getOwnPropertyDescriptor(proto, fnName)
-    decoratables.set(fnName, { target, decorators, descriptor })
-  }
+function getDescriptor(proto, fnName) {
+  return Object.getOwnPropertyDescriptor(proto, fnName)
+}
 
-  return decoratables
+function applyDecorators(decorators, target, fnName) {
+  var proto = null
+  for (const x of decorators) {
+    const decorator = knownDecorators.get(x)
+    const fn = decorator.decorate
+
+    if (decorator.needsDescriptor) {
+      proto = proto == null ? Object.getPrototypeOf(target) : proto
+      fn(target, fnName, getDescriptor(proto, fnName))
+    } else {
+      fn(target, fnName)
+    }
+  }
 }
 
 class Deko {
@@ -43,13 +65,8 @@ class Deko {
   }
 
   decorate(target) {
-    const decoratables = findDecoratables(target, this._decorators)
-    for (const [ fnName, x ] of decoratables) {
-      const originalFn = x.descriptor.value
-      const descriptor = Object.assign(
-        {}, x.descriptor, { value: originalFn.bind(target) }
-      )
-      Object.defineProperty(target, fnName, descriptor)
+    for (const [ fnName, decorator ] of this._decorators) {
+      applyDecorators(decorator, target, fnName)
     }
   }
 }
