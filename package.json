@@ -13,6 +13,7 @@
   "homepage": "https://github.com/thlorenz/deko",
   "dependencies": {},
   "devDependencies": {
+    "auto-bind": "~1.2.0",
     "nanobench": "~2.1.0",
     "tape": "^4.8.0"
   },
