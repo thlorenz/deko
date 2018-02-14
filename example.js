@@ -1,10 +1,11 @@
 'use strict'
 
 const deko = require('./deko')
+const bind = require('./decorators/bind')
 
 class WorldClass {
   constructor() {
-    WorldClass.deko.decorate(this)
+    deko(this)
   }
 
   hello() {
@@ -12,13 +13,11 @@ class WorldClass {
   }
 
   static $$onclicked() {
-     return [ 'bind' ]
+     return [ bind ]
   } onclicked(e) {
     console.log(this.hello())
   }
 }
-
-WorldClass.deko = deko({ clazz: WorldClass })
 
 const worldClass = new WorldClass()
 const onclicked = worldClass.onclicked
