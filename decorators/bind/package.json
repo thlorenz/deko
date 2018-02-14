@@ -1,9 +1,11 @@
 {
   "name": "deko-bind",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Function bind decorator for deko.",
   "main": "bind.js",
-  "files": [ "bind.js" ],
+  "files": [
+    "bind.js"
+  ],
   "scripts": {
     "test": "tape test/*.js"
   },
