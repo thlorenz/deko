@@ -7,7 +7,9 @@
     "./deko.js"
   ],
   "scripts": {
-    "test": "tape test/*.js"
+    "test-deko": "tape test/*.js",
+    "test-deko-bind": "cd decorators/bind && npm test",
+    "test": "npm run test-deko && npm run test-deko-bind"
   },
   "repository": {
     "type": "git",
