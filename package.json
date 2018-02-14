@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Decorators for ES6 classes without transpilation.",
   "main": "deko.js",
+  "files": [ "./deko.js" ],
   "scripts": {
     "test": "tape test/*.js"
   },
