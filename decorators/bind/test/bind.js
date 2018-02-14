@@ -1,8 +1,8 @@
 'use strict'
 
-const deko = require('../deko')
+const deko = require('deko')
 const test = require('tape')
-const bind = require('../decorators/bind')
+const bind = require('../')
 
 // Fixtures
 class WorldClass {

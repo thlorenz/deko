@@ -1,19 +1,5 @@
 'use strict'
 
-function bindDecorate(target, fnName) {
-  const fn = target[fnName]
-  target[fnName] = fn.bind(target)
-}
-
-const bindDecorator = {
-    needsDescriptor: false
-  , decorate: bindDecorate
-}
-
-const knownDecorators = new Map([
-  [ 'bind', bindDecorator ]
-])
-
 function getDecoratorDescriptors(descriptors) {
   const keys = Object.keys(descriptors)
   const decs = new Map()
@@ -41,7 +27,7 @@ function getDescriptor(proto, fnName) {
 function applyDecorators(decorators, target, fnName) {
   var proto = null
   for (const x of decorators) {
-    const decorator = knownDecorators.get(x)
+    const decorator = x
     const fn = decorator.decorate
 
     if (decorator.needsDescriptor) {
