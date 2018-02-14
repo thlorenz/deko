@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Function bind decorator for deko.",
   "main": "bind.js",
+  "files": [ "bind.js" ],
   "scripts": {
     "test": "tape test/*.js"
   },
@@ -29,6 +30,7 @@
     "node": ">=6"
   },
   "devDependencies": {
+    "deko": "0.0.1",
     "tape": "~4.8.0"
   }
 }
