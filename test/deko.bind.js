@@ -6,7 +6,7 @@ const test = require('tape')
 // Fixtures
 class WorldClass {
   constructor() {
-    WorldClass.deko.decorate(this)
+    deko(this)
   }
 
   hello() {
@@ -23,8 +23,6 @@ class WorldClass {
     console.log(this.hello())
   }
 }
-
-WorldClass.deko = deko({ clazz: WorldClass })
 
 // tests
 test('\ngiven a class with bind decorated function', function(t) {

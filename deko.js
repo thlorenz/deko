@@ -53,26 +53,37 @@ function applyDecorators(decorators, target, fnName) {
   }
 }
 
+const cache = new Map()
+
 class Deko {
-  constructor({ clazz }) {
+  constructor(self) {
+    const clazz = self.constructor
     this._init(clazz)
+    this._decorate(self)
   }
 
   _init(clazz) {
+    if (cache.has(clazz)) {
+      this._decorators = cache.get(clazz)
+      return
+    }
+
     const descriptors = Object.getOwnPropertyDescriptors(clazz)
     const decoratorDescriptors = getDecoratorDescriptors(descriptors)
     this._decorators = getDecorators(decoratorDescriptors)
+
+    cache.set(clazz, this._decorators)
   }
 
-  decorate(target) {
+  _decorate(target) {
     for (const [ fnName, decorator ] of this._decorators) {
       applyDecorators(decorator, target, fnName)
     }
   }
 }
 
-function createDeko({ clazz }) {
-  return new Deko({ clazz })
+function createDeko(self) {
+  return new Deko(self)
 }
 
 module.exports = createDeko
