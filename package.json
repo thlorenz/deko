@@ -9,7 +9,8 @@
   "scripts": {
     "test-deko": "tape test/*.js",
     "test-deko-bind": "cd decorators/bind && npm test",
-    "test": "npm run test-deko && npm run test-deko-bind"
+    "test-deko-debounce": "cd decorators/debounce && npm test",
+    "test": "npm run test-deko && npm run test-deko-bind && npm run test-deko-debounce"
   },
   "repository": {
     "type": "git",
