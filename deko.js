@@ -32,9 +32,9 @@ function applyDecorators(decorators, target, fnName) {
 
     if (decorator.needsDescriptor) {
       proto = proto == null ? Object.getPrototypeOf(target) : proto
-      fn(target, fnName, getDescriptor(proto, fnName))
+      fn(target, fnName, decorator.config, getDescriptor(proto, fnName))
     } else {
-      fn(target, fnName)
+      fn(target, fnName, decorator.config)
     }
   }
 }
