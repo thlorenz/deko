@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/thlorenz/bind.git"
+    "url": "git://github.com/thlorenz/deko.git"
   },
-  "homepage": "https://github.com/thlorenz/bind",
+  "homepage": "https://github.com/thlorenz/deko",
   "keywords": [
     "deko",
     "decorator",
@@ -32,7 +32,7 @@
     "node": ">=6"
   },
   "devDependencies": {
-    "deko": "0.0.1",
+    "deko": "*",
     "tape": "~4.8.0"
   }
 }
