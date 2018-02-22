@@ -51,7 +51,7 @@ test('\ndebounce: calling functions 10 times', function(t) {
     if (++loopRuns < 2) {
       return setTimeout(runLoop, 50)
     }
-    setTimeout(checkResult, 105)
+    setTimeout(checkResult, 130)
   }
 
   runLoop()
@@ -75,7 +75,7 @@ test('\ndebounce: immediate', function(t) {
   t.equal(worldClass.debouncedDefaultCount, 0, 'default debounced executes 0 times immediately')
   t.equal(worldClass.debouncedImmediateCount, 1, 'immediate debounced executes 1 time immediately')
 
-  setTimeout(checkAfterTimeout, 105)
+  setTimeout(checkAfterTimeout, 130)
 
   function checkAfterTimeout() {
     t.equal(worldClass.debouncedDefaultCount, 1, 'default debounced executes 1 time after 100ms')
