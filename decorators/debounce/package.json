@@ -7,6 +7,7 @@
     "debounce.js"
   ],
   "scripts": {
+    "pretest": "npm install",
     "test": "tape test/*.js",
     "doc": "documentation readme debounce.js --section=API --markdown-toc=false"
   },
