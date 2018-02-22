@@ -1,4 +1,4 @@
-# deko-bind [![build status](https://secure.travis-ci.org/thlorenz/deko-bind.svg?branch=master)](http://travis-ci.org/thlorenz/deko-bind)
+# deko-bind [![build status](https://secure.travis-ci.org/thlorenz/deko.svg?branch=master)](http://travis-ci.org/thlorenz/deko)
 
 bind decorator for [deko](https://github.com/thlorenz/deko).
 
