@@ -44,7 +44,7 @@ test('\ndebounce: calling functions 10 times', function(t) {
     if (++loopRuns < 2) {
       return setTimeout(runLoop, 50)
     }
-    setTimeout(checkResult, 100)
+    setTimeout(checkResult, 105)
   }
 
   runLoop()
