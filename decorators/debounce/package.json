@@ -1,5 +1,5 @@
 {
-  "name": "deko-bind",
+  "name": "deko-debounce",
   "version": "0.0.1",
   "description": "Function debounce decorator for deko.",
   "main": "debounce.js",
