@@ -33,6 +33,13 @@ onclicked()
 
     npm install deko
 
+## Decorators
+
+The following decorators are compatible with deko.
+
+- [deko-bind](https://www.npmjs.com/package/deko-bind)
+- [deko-debounce](https://www.npmjs.com/package/deko-debounce)
+
 ## Benchmarks
 
 Comparing manually binding vs. binding with deko vs. binding with
@@ -54,9 +61,6 @@ ok ~1.68 s (1 s + 684526786 ns)
 all benchmarks completed
 ok ~2.57 s (2 s + 571800372 ns)
 ```
-
-## [API](https://thlorenz.github.io/deko)
-
 
 ## License
 
