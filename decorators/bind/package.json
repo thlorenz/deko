@@ -1,6 +1,6 @@
 {
   "name": "deko-bind",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Function bind decorator for deko.",
   "main": "bind.js",
   "files": [
@@ -30,7 +30,7 @@
     "url": "https://github.com/thlorenz/deko/blob/master/LICENSE"
   },
   "engine": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "devDependencies": {
     "deko": "*",

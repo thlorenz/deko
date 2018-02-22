@@ -1,6 +1,6 @@
 {
   "name": "deko",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Decorators for ES6 classes without transpilation.",
   "main": "deko.js",
   "files": [
